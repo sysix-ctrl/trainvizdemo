@@ -243,7 +243,6 @@ VIZ.requiresData([
       day = 1;
       i = 62336997/4;
     }
-
   },10);
 
   function mouseover() {
@@ -440,7 +439,7 @@ VIZ.requiresData([
       .attr('x', width / 2)
       .attr('y', 10)
       .attr('text-anchor', 'middle');
-    text.text('Line width shows turnstile entries at a station');
+    text.text('Darstellung der Fahrgastflüsse');
     var sizes = [0, 50, 100];
     var xScale = d3.scale.ordinal()
         .domain(sizes)
@@ -505,7 +504,7 @@ VIZ.requiresData([
         .attr('text-anchor', 'start')
         .attr('x', xScale(_.last(sizes)) + 20)
         .attr('y', 32)
-        .text('people per minute');
+        .text('Personen/min');
   }());
 
 
@@ -524,7 +523,7 @@ VIZ.requiresData([
     colorKeyContainer.append('text')
         .attr('text-anchor', 'middle')
         .attr('y', 6)
-        .text('Color shows delay');
+        .text('Farbe stellt Verspätung dar');
     colorKeyContainer.attr('transform', 'translate(' + (chartWidth * 0.15 + chartMargin.left) + ',' + (chartHeight+20) + ')');
 
     var xScale = d3.scale.linear()
@@ -546,7 +545,7 @@ VIZ.requiresData([
       .tickFormat(function (n) {
         var pct = d3.format('.0%')(n);
         var npct = d3.format('.0%')(-n);
-        return n < 0 ? (npct + " faster") : n > 0 ? (pct + " slower") : "on time";
+        return n < 0 ? (npct + " langsmer") : n > 0 ? (pct + " schneller") : " pünktlich";
       })
       .tickValues([d3.min(delayMapColorScale.domain()), 0, d3.max(delayMapColorScale.domain())])
       .tickSize(4);
@@ -578,7 +577,7 @@ VIZ.requiresData([
     horizonKeyContainer.append('text')
         .attr('text-anchor', 'middle')
         .attr('y', 6)
-        .text('Gray bars show entries to all stations');
+        .text('Grau stellt die Reisenden aller Stationen aggregiert dar');
     horizonKeyContainer.attr('transform', 'translate(' + (chartWidth*3/4 + chartMargin.left) + ',' + (chartHeight+20) + ')');
 
 
@@ -623,7 +622,7 @@ VIZ.requiresData([
         .attr('text-anchor', 'start')
         .attr('x', bandWidth + 16)
         .attr('dy', 14)
-        .text('people per minute');
+        .text('Personen/min');
   }());
 
 
